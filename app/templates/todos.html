@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{%block content %}
+<body>
+    <div class="container">
+       <br>
+       <br>
+         <br>
+        <h3> ToDos List</h3>
+        <a href="{% url 'add_todo' %}" class="btn btn-dark">Add new ToDo</a>     
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Finished</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+              <tr>
+                <th class="table-light" scope="row"></th>
+                <td class="table-light">{{task.name}}</td>
+                <td class="table-light">{{task.description}}</td>
+                <td class="table-light">{{task.finished}}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    </div>
+</body>
+</html>
+{%endblock content %}
